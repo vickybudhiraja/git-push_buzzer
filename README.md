@@ -1,6 +1,6 @@
 # git-push_buzzer
 
-## Your pico-W will sound an alarm as soon as somone pushed the code in your git repo.
+## Your pico-W will sound an alarm as soon as somone pushes the code in your git repo.
 
 Run via VS Extension.
 
