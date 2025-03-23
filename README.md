@@ -1,4 +1,4 @@
-# git-push_buzzer
+# Pico-W git-push-buzzer
 
 ## Your pico-W will sound an alarm as soon as somone pushes the code in your git repo.
 
