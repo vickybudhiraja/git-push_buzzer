@@ -61,7 +61,7 @@ try:
         lcd.clear()
         lcd.move_to(0, 1)
         lcd.putstr("Hello Milky!")
-        play_tune(celebratory_notes, celebratory_durations)
+        play_tune(sad_notes, sad_durations)
         sleep(1)
 
 except KeyboardInterrupt:
