@@ -21,10 +21,10 @@ def fetch_push():
             # if chunk:
             #     print(chunk)
             if chunk:
-                decoded = chunk.decode("utf-8", errors="ignore")
+                decoded = chunk.decode("utf-8", errors="ignore").lower()
                 if search_str in decoded:
                     print(search_str)
-                    match = re.search(rf"\D*(\d+){search_str}", decoded)
+                    match = re.search(r'(\d+)\s+' + search_str, decoded)
                     if match:
                         found_number = match.group(1)
                         print(found_number)
