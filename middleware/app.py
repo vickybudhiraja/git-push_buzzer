@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import requests
+import re
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ def fetch_push():
     if response.status_code == 200:
         search_str = "commit"
         match_found = False
+        found_number = None
 
         for chunk in response.iter_content(chunk_size=1024):
             # if chunk:
@@ -22,11 +24,15 @@ def fetch_push():
                 decoded = chunk.decode("utf-8", errors="ignore")
                 if search_str in decoded:
                     print(search_str)
-                    match_found = True
-                    break
+                    match = re.search(rf"\D*(\d+){search_str}", decoded)
+                    if match:
+                        found_number = match.group(1)
+                        print(found_number)
+                        match_found = True
+                        break
 
-        if match_found:
-            return search_str
+        if match_found and found_number:
+            return found_number
     else:
         print(f"Error: {response.status_code}")
 
