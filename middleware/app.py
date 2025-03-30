@@ -26,7 +26,7 @@ def fetch_push():
                     break
 
         if match_found:
-            return True
+            return search_str
     else:
         print(f"Error: {response.status_code}")
 
